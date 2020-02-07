@@ -28,6 +28,19 @@ public class Resources
 {
 
 	/**
+	 * Open a resource as a stream.
+	 * 
+	 * @param filename
+	 *            the file to load from the classpath
+	 * @return an InputStream
+	 */
+	public static InputStream stream(String filename)
+	{
+		return Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(filename);
+	}
+
+	/**
 	 * Load a resource to a string using
 	 * {@link IOUtils#toString(InputStream, Charset)}.
 	 * 
