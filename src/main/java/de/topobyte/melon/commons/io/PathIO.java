@@ -41,7 +41,7 @@ public class PathIO
 	 * @throws IOException
 	 *             if an I/O error occurs
 	 */
-	public String toString(Path file) throws IOException
+	public static String toString(Path file) throws IOException
 	{
 		return toString(file, StandardCharsets.UTF_8);
 	}
@@ -60,7 +60,7 @@ public class PathIO
 	 * @throws IOException
 	 *             if an I/O error occurs
 	 */
-	public String toString(Path file, Charset charset) throws IOException
+	public static String toString(Path file, Charset charset) throws IOException
 	{
 		try (InputStream is = Files.newInputStream(file)) {
 			return IOUtils.toString(is, charset);
@@ -79,7 +79,7 @@ public class PathIO
 	 *             if an I/O error occurs or reading more than
 	 *             {@link Integer#MAX_VALUE} occurs.
 	 */
-	public byte[] toByteArray(Path file) throws IOException
+	public static byte[] toByteArray(Path file) throws IOException
 	{
 		try (InputStream is = Files.newInputStream(file)) {
 			return IOUtils.toByteArray(is);
