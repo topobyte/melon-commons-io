@@ -67,4 +67,23 @@ public class PathIO
 		}
 	}
 
+	/**
+	 * Gets the contents of an {@code Path} as a {@code byte[]}.
+	 *
+	 * @param file
+	 *            the {@code Path} to read from.
+	 * @return the requested byte array.
+	 * @throws NullPointerException
+	 *             if the InputStream is {@code null}.
+	 * @throws IOException
+	 *             if an I/O error occurs or reading more than
+	 *             {@link Integer#MAX_VALUE} occurs.
+	 */
+	public byte[] toByteArray(Path file) throws IOException
+	{
+		try (InputStream is = Files.newInputStream(file)) {
+			return IOUtils.toByteArray(is);
+		}
+	}
+
 }
